@@ -1,48 +1,62 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bismillah Enterprise - Premium Dehydrated Foods</title>
-    <!-- Google Fonts for Professional Look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         :root {
-            --primary: #4CAF50;
-            --secondary: #FF9800;
-            --dark: #2E7D32;
-            --light: #f9f9f9;
-            --text: #333;
+            --primary: #2E7D32;       /* Fresh Leaf Green */
+            --primary-light: #E8F5E9; /* Soft Sprout Green */
+            --accent: #E65100;        /* Sun-dried Warm Orange */
+            --accent-light: #FFF3E0;  /* Dehydration Cream */
+            --dark: #1B5E20;          /* Deep Forest Green */
+            --light-bg: #FCFBF9;      /* Elegant Sand/Cream Background */
+            --card-bg: #FFFFFF;
+            --text-main: #2D312E;     /* Dark Charcoal */
+            --text-muted: #626864;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
+            background-color: var(--light-bg);
+            color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 60px;
+            padding-bottom: 80px;
         }
 
-        /* Top Notification Bar */
-        .top-bar {
-            background: var(--dark);
+        /* Top Announcement Bar */
+        .promo-bar {
+            background: linear-gradient(90deg, var(--dark), var(--primary));
             color: white;
             text-align: center;
-            padding: 8px;
+            padding: 10px;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Header & Professional Logo Concept */
+        /* Professional Header */
         header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -50,66 +64,74 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-container {
+        /* Visual SVG Logo Concept */
+        .brand-logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            text-decoration: none;
         }
 
-        /* Conceptual Logo design as requested: Text clearly showing the work */
-        .logo-box {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 20px;
-            text-align: center;
-            line-height: 1.2;
+        .logo-graphic {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .logo-box span {
-            display: block;
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+
+        .brand-tagline {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 400;
-            border-top: 1px solid rgba(255,255,255,0.5);
-            margin-top: 4px;
-            padding-top: 2px;
-        }
-
-        .company-name {
-            font-size: 22px;
+            letter-spacing: 1.5px;
+            color: var(--accent);
             font-weight: 700;
-            color: var(--dark);
+            margin-top: 2px;
         }
 
-        /* Navigation Links */
+        /* Nav Menu */
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text);
+            color: var(--text-main);
             font-weight: 600;
+            font-size: 16px;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
         }
 
         nav a:hover, nav a.active {
             color: var(--primary);
+            background-color: var(--primary-light);
         }
 
-        /* Main Content Container */
+        /* Container & Pages */
         .container {
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
@@ -119,154 +141,438 @@
 
         .page.active {
             display: block;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
-        /* Hero Section (Home) */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Premium Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+            background: linear-gradient(135deg, rgba(27,94,32,0.85), rgba(230,81,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
             color: white;
-            padding: 100px 40px;
+            padding: 90px 40px;
             text-align: center;
-            border-radius: 15px;
+            border-radius: 24px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(230,81,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #BF360C;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230,81,0,0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+        }
+
+        /* E-commerce Style Product Showcase */
+        .section-header {
+            text-align: center;
             margin-bottom: 40px;
         }
 
-        .hero h1 { font-size: 45px; margin-bottom: 15px; }
-        .hero p { font-size: 18px; margin-bottom: 25px; }
-        .btn {
-            background: var(--secondary);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s;
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 10px;
         }
-        .btn:hover { transform: scale(1.05); }
 
-        /* Product Grid Style (Matching Sundried Layout) */
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 20px;
         }
 
         .card {
-            background: white;
-            border-radius: 12px;
+            background: var(--card-bg);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            text-align: center;
-            padding-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
             position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            background: #f5f5f5;
         }
 
         .card img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.05);
         }
 
         .badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .card-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .card .pack-info {
+            font-size: 13px;
+            color: var(--accent);
+            background-color: var(--accent-light);
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            width: fit-content;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card .desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 15px;
+            margin-top: auto;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .price-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        /* Quality Badges / Highlights */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .highlight-card {
+            background: var(--primary-light);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px dashed var(--primary);
+        }
+
+        .highlight-card i {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .highlight-card h4 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Form & Contact Styles */
+        .contact-box {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 32px; }
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111412;
+            color: #e0e5e1;
+            padding: 60px 5% 40px;
+            margin-top: 100px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-title {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #a2a8a4;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 30px;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #727874;
+        }
+
+        /* Content Editable Visual Aids */
+        [contenteditable="true"] {
+            border: 2px dashed var(--accent) !important;
+            background-color: #FFFDE7 !important;
+            color: #111 !important;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .admin-panel {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
             background: var(--primary);
             color: white;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        .card h3 { margin: 15px 0 5px 0; color: #222; }
-        .card .weight { color: #777; font-size: 14px; margin-bottom: 10px; }
-        .card .price { color: var(--dark); font-weight: 700; font-size: 18px; margin-bottom: 15px; }
-
-        /* About & Features Styling */
-        .about-section {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-        
-        .section-title {
-            text-align: center;
-            color: var(--dark);
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-
-        /* Footer & Social Media */
-        footer {
-            background: #222;
-            color: white;
-            padding: 40px 5%;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-section h3 { color: var(--secondary); margin-bottom: 15px; }
-        .footer-section p, .footer-section a { color: #ccc; text-decoration: none; margin-bottom: 10px; display: block; }
-        
-        .social-links a {
-            display: inline-block;
-            background: #333;
-            color: white;
-            padding: 8px 15px;
-            margin-right: 5px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        /* Inline Content Editable Controls */
-        [contenteditable="true"] {
-            border: 2px dashed var(--secondary) !important;
-            background-color: #fffde7 !important;
-            color: #000 !important;
-        }
-
-        .admin-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #2E7D32;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 30px;
+            padding: 14px 24px;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            font-weight: 700;
             z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .admin-panel:hover {
+            background: var(--dark);
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
 
-    <!-- Notification Bar -->
-    <div class="top-bar" contenteditable="false" id="topNotify">🚚 Free Delivery Across Pakistan on Orders Above Rs. 2000!</div>
+    <!-- Promotion Ribbon -->
+    <div class="promo-bar">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span id="promoText" contenteditable="false">Purely Sun-Dried & Dehydrated Organic Quality - Free Shipping on orders over Rs. 1500!</span>
+    </div>
 
-    <!-- Header Section -->
+    <!-- Header & Navigation -->
     <header>
-        <div class="logo-container">
-            <div class="logo-box">
-                Bismillah
-                <span>Dehydrated Foods</span>
+        <a class="brand-logo-container" onclick="showPage('home')">
+            <!-- Professional Custom SVG Concept Logo -->
+            <div class="logo-graphic">
+                <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Outer sun drying energy rings -->
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="#E65100" stroke-width="2.5" stroke-dasharray="8 5" />
+                    <circle cx="50" cy="50" r="39" fill="none" stroke="#FFB300" stroke-width="1.5" opacity="0.7"/>
+                    
+                    <!-- The Spine of letter 'B' represents a fresh sprouting organic leaf/plant -->
+                    <path d="M 36,22 L 36,78" fill="none" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
+                    <!-- Sprout leaf details coming out of the 'B' stem -->
+                    <path d="M 36,36 Q 22,30 36,24 Z" fill="#2E7D32" />
+                    <path d="M 36,65 Q 24,55 36,45 Z" fill="#2E7D32" />
+                    
+                    <!-- Top loop of B: Formed like a freshly sliced dehydrated Banana Ring -->
+                    <path d="M 36,22 C 55,22 62,38 46,46 L 36,46" fill="none" stroke="#FFC107" stroke-width="7.5" stroke-linecap="round"/>
+                    <!-- Inside dots to signify dried seeds/texture -->
+                    <circle cx="43" cy="34" r="2.5" fill="#5D4037" />
+                    <circle cx="49" cy="30" r="2" fill="#5D4037" />
+
+                    <!-- Bottom loop of B: Stylized dehydrated citrus/vegetable slice showing sun rays grid -->
+                    <path d="M 36,46 C 62,46 64,78 36,78" fill="none" stroke="#E65100" stroke-width="7.5" stroke-linecap="round"/>
+                    <!-- Inner dehydration spoke lines (sun-dried wedges) inside the bottom 'B' loop -->
+                    <line x1="39" y1="62" x2="52" y2="62" stroke="#E65100" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="39" y1="53" x2="48" y2="57" stroke="#E65100" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="39" y1="71" x2="48" y2="67" stroke="#E65100" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
             </div>
-            <div class="company-name" contenteditable="false" id="compName">Enterprise</div>
-        </div>
+            <div class="brand-text">
+                <span class="brand-name">Bismillah</span>
+                <span class="brand-tagline" id="brandTag" contenteditable="false">Dehydrated Foods</span>
+            </div>
+        </a>
         <nav>
             <ul>
                 <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
@@ -281,165 +587,323 @@
         
         <!-- ================= HOME PAGE ================= -->
         <div id="home" class="page active">
+            <!-- Hero banner with organic texture -->
             <div class="hero">
-                <h1 contenteditable="false" id="heroTitle">Pure, Natural & 100% Dehydrated Goodness</h1>
-                <p contenteditable="false" id="heroSub">Premium Quality Dried Fruits, Vegetables, and Organic Powders packed with nutrition.</p>
-                <button class="btn" onclick="showPage('products')">View Our Products</button>
+                <h1 id="heroTitle" contenteditable="false">Premium Dehydrated Fruits, Veggies & Natural Powders</h1>
+                <p id="heroSub" contenteditable="false">Preserving taste, nutrition, and pure goodness using high-grade hygienic dehydration. No artificial preservatives, No added sugar.</p>
+                <button class="btn" onclick="showPage('products')">
+                    Explore Dried Range <i class="fa-solid fa-arrow-right"></i>
+                </button>
             </div>
 
-            <h2 class="section-title">Our Best Sellers</h2>
-            <div class="grid">
-                <!-- Sample Product 1 -->
-                <div class="card">
-                    <span class="badge">100% Organic</span>
-                    <img src="https://images.unsplash.com/photo-1618228943063-4499ae386ccf?auto=format&fit=crop&q=80&w=400" alt="Dried Apple Slides">
-                    <h3 contenteditable="false">Premium Dried Apple</h3>
-                    <p class="weight">Packaging: 100g - 500g</p>
-                    <p class="price">Rs. 250</p>
-                    <button class="btn" style="padding: 6px 15px; font-size:14px;">Order via WhatsApp</button>
+            <!-- Value Highlights -->
+            <div class="highlights">
+                <div class="highlight-card">
+                    <i class="fa-solid fa-sun"></i>
+                    <h4>100% Sun & Clean-Dried</h4>
+                    <p>Clean, moisture-controlled dehydration keeping food fresh for months.</p>
                 </div>
-                <!-- Sample Product 2 -->
+                <div class="highlight-card">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h4>No Added Chemicals</h4>
+                    <p>Zero color additives, zero chemicals, pure natural farm produce.</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <h4>Smart Pack sizes</h4>
+                    <p>Aesthetic fresh packaging in convenient 100g to 500g zipper packs.</p>
+                </div>
+            </div>
+
+            <!-- Best Sellers section -->
+            <div class="section-header">
+                <h2>Our Premium Bestsellers</h2>
+                <p>Taste the richness of moisture-extracted organic goodness</p>
+            </div>
+
+            <div class="grid">
+                <!-- Product 1 -->
+                <div class="card">
+                    <span class="badge">Fruit Slice</span>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&q=80&w=600" alt="Dried Apples">
+                    </div>
+                    <div class="card-body">
+                        <h3 id="p1_title" contenteditable="false">Dehydrated Apple Ring Crisps</h3>
+                        <span class="pack-info">Size: 100g - 500g Packs</span>
+                        <p class="desc" id="p1_desc" contenteditable="false">Delicious, crispy organic apple rings dehydrated cleanly under strict hygiene. Sweet, chewy, and highly nutritious snack.</p>
+                        <div class="price-row">
+                            <div>
+                                <span class="price-label">Price starts from</span>
+                                <div class="price-val" id="p1_price" contenteditable="false">Rs. 250</div>
+                            </div>
+                            <a class="btn btn-whatsapp" href="https://wa.me/923000000000?text=I%20want%20to%20order%20Dehydrated%20Apple%20Rings" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i> Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
                 <div class="card">
                     <span class="badge">Pure Powder</span>
-                    <img src="https://images.unsplash.com/photo-1608797178974-15b35a61d121?auto=format&fit=crop&q=80&w=400" alt="Garlic Powder">
-                    <h3 contenteditable="false">Dehydrated Garlic Powder</h3>
-                    <p class="weight">Packaging: 100g - 500g</p>
-                    <p class="price">Rs. 180</p>
-                    <button class="btn" style="padding: 6px 15px; font-size:14px;">Order via WhatsApp</button>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600" alt="Garlic Powder">
+                    </div>
+                    <div class="card-body">
+                        <h3 id="p2_title" contenteditable="false">Premium Garlic Powder (Lasan)</h3>
+                        <span class="pack-info">Size: 100g - 500g Packs</span>
+                        <p class="desc" id="p2_desc" contenteditable="false">Finely ground organic garlic powder dehydrated beautifully to retain full medicinal value, sharp taste, and authentic culinary aroma.</p>
+                        <div class="price-row">
+                            <div>
+                                <span class="price-label">Price starts from</span>
+                                <div class="price-val" id="p2_price" contenteditable="false">Rs. 180</div>
+                            </div>
+                            <a class="btn btn-whatsapp" href="https://wa.me/923000000000?text=I%20want%20to%20order%20Dehydrated%20Garlic%20Powder" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i> Order Now
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- ================= PRODUCTS PAGE ================= -->
         <div id="products" class="page">
-            <h2 class="section-title">Our Dehydrated Product Range</h2>
-            <p style="text-align:center; margin-bottom: 20px;">Available in premium zip-lock packaging (100 Grams to 500 Grams)</p>
-            
+            <div class="section-header">
+                <h2>Aesthetic Dry Food Range</h2>
+                <p>Pure dehydrated fruits, herbs, and spices directly dispatched to your location</p>
+            </div>
+
             <div class="grid">
                 <!-- Product 1 -->
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&q=80&w=400" alt="Dehydrated Carrot">
-                    <h3 contenteditable="false">Dehydrated Carrot Flakes</h3>
-                    <p class="weight">Pack sizes: 100g / 250g / 500g</p>
-                    <p class="price">Rs. 150</p>
+                    <span class="badge">Diced Veg</span>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1590814347451-9a59599d19a2?auto=format&fit=crop&q=80&w=600" alt="Dried Carrots">
+                    </div>
+                    <div class="card-body">
+                        <h3 id="p3_title" contenteditable="false">Dehydrated Carrot Flakes (Gajar)</h3>
+                        <span class="pack-info">Size: 100g - 500g Packs</span>
+                        <p class="desc" id="p3_desc" contenteditable="false">Organic dried sweet carrots. Rehydrates in seconds inside your cooking pots or great to be consumed dry as a fiber-rich snack.</p>
+                        <div class="price-row">
+                            <div>
+                                <span class="price-label">Price starts from</span>
+                                <div class="price-val" id="p3_price" contenteditable="false">Rs. 150</div>
+                            </div>
+                            <a class="btn btn-whatsapp" href="https://wa.me/923000000000?text=I%20want%20to%20order%20Dehydrated%20Carrots" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i> Order Now
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Product 2 -->
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=400" alt="Dried Onion">
-                    <h3 contenteditable="false">Sundried Onion Powder</h3>
-                    <p class="weight">Pack sizes: 100g / 250g / 500g</p>
-                    <p class="price">Rs. 160</p>
+                    <span class="badge">Dried Powder</span>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1580196780829-3e82384ee66a?auto=format&fit=crop&q=80&w=600" alt="Onion Powder">
+                    </div>
+                    <div class="card-body">
+                        <h3 id="p4_title" contenteditable="false">Hygienic Onion Powder (Pyaaz)</h3>
+                        <span class="pack-info">Size: 100g - 500g Packs</span>
+                        <p class="desc" id="p4_desc" contenteditable="false">Fine dry onion powder, highly useful for instant cooking base, gravies, and marinades. Sourced clean, processed clean.</p>
+                        <div class="price-row">
+                            <div>
+                                <span class="price-label">Price starts from</span>
+                                <div class="price-val" id="p4_price" contenteditable="false">Rs. 160</div>
+                            </div>
+                            <a class="btn btn-whatsapp" href="https://wa.me/923000000000?text=I%20want%20to%20order%20Dehydrated%20Onion%20Powder" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i> Order Now
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Product 3 -->
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1534080391095-71b1454745a2?auto=format&fit=crop&q=80&w=400" alt="Dry Fruits">
-                    <h3 contenteditable="false">Assorted Dried Fruits</h3>
-                    <p class="weight">Pack sizes: 100g / 250g / 500g</p>
-                    <p class="price">Rs. 450</p>
+                    <span class="badge">Chewy Fruit</span>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600850056064-a8b380df8395?auto=format&fit=crop&q=80&w=600" alt="Dried Mango">
+                    </div>
+                    <div class="card-body">
+                        <h3 id="p5_title" contenteditable="false">Dehydrated Mango Slices</h3>
+                        <span class="pack-info">Size: 100g - 500g Packs</span>
+                        <p class="desc" id="p5_desc" contenteditable="false">Delicious, chewy real mango chunks dried carefully to trap natural sugars, tang, and vital minerals inside each bite.</p>
+                        <div class="price-row">
+                            <div>
+                                <span class="price-label">Price starts from</span>
+                                <div class="price-val" id="p5_price" contenteditable="false">Rs. 450</div>
+                            </div>
+                            <a class="btn btn-whatsapp" href="https://wa.me/923000000000?text=I%20want%20to%20order%20Dehydrated%20Mango%20Slices" target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i> Order Now
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- ================= ABOUT US PAGE ================= -->
         <div id="about" class="page">
-            <div class="about-section">
-                <h2 class="section-title">About Bismillah Enterprise</h2>
-                <p contenteditable="false" id="aboutText1" style="font-size:17px; margin-bottom:15px;">
-                    Welcome to Bismillah Enterprise. We are a dedicated company specializing in premium food dehydration. We take the freshest fruits, vegetables, and dry fruits, and use advanced hygienic dehydration processes to preserve their taste, nutrients, and goodness without adding any harmful chemicals or preservatives.
+            <div class="contact-box">
+                <h2 class="section-title" style="text-align: center; color: var(--dark); font-family: 'Playfair Display', serif; margin-bottom: 25px;">
+                    Our Dehydration Philosophy
+                </h2>
+                <p id="aboutStory" contenteditable="false" style="font-size: 16px; margin-bottom: 20px; text-align: justify; color: var(--text-main);">
+                    At <strong>Bismillah Enterprise</strong>, we are committed to making storage, cooking, and healthy snacking seamless. Many fresh fruits and vegetables rot and are wasted due to short shelf lives. Through our advanced food dehydration processes, we slowly extract 100% of moisture while perfectly locking in all natural vitamins, rich fibers, and aromatic oils. 
                 </p>
-                <h3 style="margin: 20px 0 10px 0; color:var(--dark);">Why Choose Our Dehydrated Products?</h3>
-                <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li>100% Natural with no artificial flavors or preservatives.</li>
-                    <li>Longer shelf life and extremely convenient for daily cooking & snacking.</li>
-                    <li>Sourced directly from organic farms to ensure absolute quality.</li>
-                </ul>
+                <div style="background-color: var(--accent-light); padding: 25px; border-radius: 12px; margin-bottom: 25px;">
+                    <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 18px;">Why our products don't spoil:</h3>
+                    <p style="font-size: 14px; color: var(--text-main);">Because bacteria and fungus need moisture to grow. By cleanly taking out moisture from premium fresh fruits & veggies, our foods naturally stay fresh for months without a single drop of added chemical preservatives!</p>
+                </div>
             </div>
         </div>
 
         <!-- ================= CONTACT PAGE ================= -->
         <div id="contact" class="page">
-            <div class="about-section">
-                <h2 class="section-title">Contact Us & Order Now</h2>
-                <p style="text-align: center; margin-bottom: 30px;">Aap niche diye gaye details ko edit kar k apna phone number aur links dal sakte hain.</p>
+            <div class="contact-box">
+                <h2 class="section-title" style="text-align: center; color: var(--dark); font-family: 'Playfair Display', serif; margin-bottom: 10px;">
+                    Get In Touch
+                </h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Aap is details ko edit kar k bad me update kar sakte hain.</p>
                 
-                <div style="max-width: 600px; margin: 0 auto; font-size: 18px;">
-                    <p><strong>📞 Phone Number:</strong> <span contenteditable="false" id="editPhone">+92 300 0000000</span></p><br>
-                    <p><strong>💬 WhatsApp Link/Number:</strong> <span contenteditable="false" id="editWA">+92 300 0000000</span></p><br>
-                    <p><strong>📍 Business Location:</strong> <span contenteditable="false" id="editLoc">Online Store (Physical location coming soon)</span></p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Call/Phone</h4>
+                            <p id="c_phone" contenteditable="false" style="font-weight: 700; color: var(--dark);">+92 300 0000000</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">WhatsApp Business</h4>
+                            <p id="c_whatsapp" contenteditable="false" style="font-weight: 700; color: var(--dark);">+92 300 0000000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="margin-top: 25px; width: 100%;">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4 style="margin-bottom: 5px;">Dispatch Office Location</h4>
+                        <p id="c_address" contenteditable="false">Online Store, Pakistan (Physical wholesale location details coming soon)</p>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Bismillah Enterprise</h3>
-                <p>Pure, healthy, and high-quality dehydrated vegetables, fruits, and organic powders.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a onclick="showPage('home')">Home</a>
-                <a onclick="showPage('products')">Products</a>
-                <a onclick="showPage('contact')">Contact Support</a>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <!-- You can edit these placeholder links anytime in edit mode -->
-                    <a href="#" id="fbLink" contenteditable="false">Facebook</a>
-                    <a href="#" id="instaLink" contenteditable="false">Instagram</a>
-                    <a href="#" id="waLink" contenteditable="false">WhatsApp</a>
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <h3 class="footer-title">Bismillah Enterprise</h3>
+                <p style="color: #929894; font-size: 14px;">Delivering high-end, pure dried vegetable rings, fruit snacks, and herbal organic powders across Pakistan.</p>
+                <div class="social-row">
+                    <a href="#" class="social-icon" id="f_fb"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" id="f_ig"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon" id="f_wa"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
+            <div class="footer-logo">
+                <h3 class="footer-title">Our Packaging</h3>
+                <p style="color: #929894; font-size: 14px; line-height: 1.8;">
+                    All items are perfectly vacuum-sealed and shipped in moisture-barrier zippers of:<br>
+                    <strong>• 100 Grams<br>• 250 Grams<br>• 500 Grams</strong>
+                </p>
+            </div>
+            <div class="footer-logo">
+                <h3 class="footer-title">Navigation</h3>
+                <ul class="footer-links">
+                    <li><a onclick="showPage('home')">Home Page</a></li>
+                    <li><a onclick="showPage('products')">Dried Products</a></li>
+                    <li><a onclick="showPage('about')">Our Story</a></li>
+                    <li><a onclick="showPage('contact')">Order / Contact</a></li>
+                </ul>
+            </div>
         </div>
-        <p style="text-align: center; margin-top: 30px; color: #777; font-size: 14px;">&copy; 2026 Bismillah Enterprise. All Rights Reserved.</p>
+        <div class="copyright">
+            <p>&copy; 2026 Bismillah Enterprise. Sourced with care, dried with perfection.</p>
+        </div>
     </footer>
 
-    <!-- Admin/Edit Toggle Button -->
-    <div class="admin-control" onclick="toggleEditMode()">✍️ Toggle Edit Mode</div>
+    <!-- Admin Panel Control Button -->
+    <div class="admin-panel" onclick="toggleEditMode()">
+        <i class="fa-solid fa-pen-to-square"></i> <span id="adminBtnTxt">Toggle Edit Mode</span>
+    </div>
 
     <script>
-        // Page Navigation Logic
+        // Tab switching function
         function showPage(pageId) {
-            // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
             
-            // Remove active class from all nav items
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => link.classList.remove('active'));
             
-            // Show requested page
             document.getElementById(pageId).classList.add('active');
             document.getElementById('nav-' + pageId).classList.add('active');
-            
-            // Scroll to top safely
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
         }
 
-        // Live Frontend Editing Feature
-        let isEditable = false;
+        // Check and load previously saved edits from localStorage
+        const editableIds = [
+            'promoText', 'brandTag', 'heroTitle', 'heroSub', 
+            'p1_title', 'p1_desc', 'p1_price',
+            'p2_title', 'p2_desc', 'p2_price',
+            'p3_title', 'p3_desc', 'p3_price',
+            'p4_title', 'p4_desc', 'p4_price',
+            'p5_title', 'p5_desc', 'p5_price',
+            'aboutStory', 'c_phone', 'c_whatsapp', 'c_address'
+        ];
+
+        window.onload = function() {
+            editableIds.forEach(id => {
+                const savedVal = localStorage.getItem('bismillah_ent_' + id);
+                if (savedVal) {
+                    const el = document.getElementById(id);
+                    if (el) el.innerHTML = savedVal;
+                }
+            });
+        };
+
+        // Live Frontend Editing & Auto-Saving System
+        let editModeActive = false;
         function toggleEditMode() {
-            isEditable = !isEditable;
+            editModeActive = !editModeActive;
             
-            // Select all key elements to make them live editable
-            const editableElements = document.querySelectorAll(
-                '#topNotify, #compName, #heroTitle, #heroSub, h3, #aboutText1, #editPhone, #editWA, #editLoc, #fbLink, #instaLink, #waLink'
-            );
-            
-            editableElements.forEach(el => {
-                el.setAttribute('contenteditable', isEditable ? 'true' : 'false');
+            editableIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.setAttribute('contenteditable', editModeActive ? 'true' : 'false');
+                }
             });
 
-            if(isEditable) {
-                alert("Edit Mode ON! Ab aap website k text, headings aur social links par click kar k unhein direct change kar sakte hain.");
+            const buttonText = document.getElementById('adminBtnTxt');
+            if (editModeActive) {
+                buttonText.innerText = "Save & Lock Changes";
+                document.querySelector('.admin-panel').style.backgroundColor = '#E65100'; // Orange while editing
+                alert("Edit Mode ON!\n\nAap kisi bhi text par tap kar k usay directly edit kar saktay hain. Edit karne k baad 'Save & Lock Changes' par zaroor click karein ta k data hamesha save rahay.");
             } else {
-                alert("Edit Mode OFF! Aapki changes apply ho chuki hain.");
+                buttonText.innerText = "Toggle Edit Mode";
+                document.querySelector('.admin-panel').style.backgroundColor = 'var(--primary)';
+                
+                // Save all edited fields into localStorage
+                editableIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        localStorage.setItem('bismillah_ent_' + id, el.innerHTML);
+                    }
+                });
+                alert("Changes Saved Successfully!\n\nAapka data local browser me save ho chuka hai.");
             }
         }
     </script>
 </body>
 </html>
+
+```
